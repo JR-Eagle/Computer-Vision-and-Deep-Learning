@@ -1,6 +1,4 @@
-## Week 01
-
-### Task
+### Description
 1.Convert RGB image to gray scale image
 - Manually implement
 - Use API
