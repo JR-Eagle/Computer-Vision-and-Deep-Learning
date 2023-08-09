@@ -1,11 +1,11 @@
 ## Week 01
 
 ### Task
-1.RGB转灰度图
-* 手动实现
-* 调用API
+1.Convert RGB image to gray scale image
+- Manually implement
+- Use API
 
-2. 二值化
+2.Binarization
 
 ## Result
 
