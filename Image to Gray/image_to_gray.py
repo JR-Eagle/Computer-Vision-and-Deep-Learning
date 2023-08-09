@@ -2,7 +2,7 @@
 """
 @author: rai
 
-彩色图像的灰度化、二值化
+Grayscale and binarization of color images.
 """
 from skimage.color import rgb2gray
 import numpy as np
