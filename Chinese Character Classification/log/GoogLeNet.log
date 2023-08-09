@@ -1,0 +1,532 @@
+Start:20220123_21_43_07
+
+Seed Set: True , Seed :3
+Namespace(batch_size=64, img_size=256, logdir='./log/20220123_21_43_07.log', lr=0.001, model='googlenet', n_epochs=200, optim='SGD', pretrained=True, resume=False, root='./data')
+
+Using cuda device
+
+GoogLeNet(
+  (conv1): BasicConv2d(
+    (conv): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (maxpool1): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+  (conv2): BasicConv2d(
+    (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (conv3): BasicConv2d(
+    (conv): Conv2d(64, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (maxpool2): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+  (inception3a): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(192, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(96, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(192, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(16, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (inception3b): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(128, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(256, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(32, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (maxpool3): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+  (inception4a): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(480, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(480, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(96, 208, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(208, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(480, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(16, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(16, 48, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(480, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (inception4b): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(512, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(512, 112, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(112, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(112, 224, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(224, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(512, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(24, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (inception4c): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(512, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(24, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (inception4d): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(512, 112, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(112, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(512, 144, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(144, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(144, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (inception4e): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(528, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(528, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(160, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(528, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(32, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(528, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (maxpool4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+  (inception5a): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(832, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(832, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(160, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(832, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(32, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(832, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (inception5b): Inception(
+    (branch1): BasicConv2d(
+      (conv): Conv2d(832, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch2): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(832, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(192, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch3): Sequential(
+      (0): BasicConv2d(
+        (conv): Conv2d(832, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicConv2d(
+        (conv): Conv2d(48, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (branch4): Sequential(
+      (0): MaxPool2d(kernel_size=3, stride=1, padding=1, dilation=1, ceil_mode=True)
+      (1): BasicConv2d(
+        (conv): Conv2d(832, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (aux1): None
+  (aux2): None
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (dropout): Dropout(p=0.2, inplace=False)
+  (fc): Linear(in_features=1024, out_features=4, bias=True)
+)
+Train_loss: 1.570545  Train_acc: 0.303125  [1/200]
+Train_loss: 1.563511  Train_acc: 0.296875  [2/200]
+Train_loss: 1.545525  Train_acc: 0.290625  [3/200]
+Train_loss: 1.544393  Train_acc: 0.296875  [4/200]
+Train_loss: 1.543150  Train_acc: 0.308750  [5/200]
+Train_loss: 1.516077  Train_acc: 0.314063  [6/200]
+Train_loss: 1.511144  Train_acc: 0.320089  [7/200]
+Train_loss: 1.505886  Train_acc: 0.321484  [8/200]
+Train_loss: 1.468712  Train_acc: 0.333333  [9/200]
+Train_loss: 1.456627  Train_acc: 0.342813  [10/200]
+Train_loss: 1.445329  Train_acc: 0.352841  [11/200]
+Train_loss: 1.413193  Train_acc: 0.364844  [12/200]
+Train_loss: 1.388350  Train_acc: 0.379087  [13/200]
+Train_loss: 1.367109  Train_acc: 0.394866  [14/200]
+Train_loss: 1.337155  Train_acc: 0.410208  [15/200]
+Train_loss: 1.306160  Train_acc: 0.426953  [16/200]
+Train_loss: 1.263994  Train_acc: 0.442463  [17/200]
+Train_loss: 1.253956  Train_acc: 0.457639  [18/200]
+Train_loss: 1.195978  Train_acc: 0.472533  [19/200]
+Train_loss: 1.158670  Train_acc: 0.487187  [20/200]
+Train_loss: 1.078287  Train_acc: 0.503274  [21/200]
+Train_loss: 1.056097  Train_acc: 0.517756  [22/200]
+Train_loss: 1.008582  Train_acc: 0.531793  [23/200]
+Train_loss: 0.967075  Train_acc: 0.545443  [24/200]
+Train_loss: 0.894097  Train_acc: 0.559000  [25/200]
+Train_loss: 0.855366  Train_acc: 0.572476  [26/200]
+Train_loss: 0.779708  Train_acc: 0.585648  [27/200]
+Train_loss: 0.741980  Train_acc: 0.597768  [28/200]
+Train_loss: 0.709011  Train_acc: 0.609483  [29/200]
+Train_loss: 0.665285  Train_acc: 0.620104  [30/200]
+Train_loss: 0.625143  Train_acc: 0.630040  [31/200]
+Train_loss: 0.595792  Train_acc: 0.640430  [32/200]
+Train_loss: 0.538341  Train_acc: 0.650379  [33/200]
+Train_loss: 0.537364  Train_acc: 0.659467  [34/200]
+Train_loss: 0.497874  Train_acc: 0.668482  [35/200]
+Train_loss: 0.483795  Train_acc: 0.676823  [36/200]
+Train_loss: 0.437652  Train_acc: 0.685051  [37/200]
+Train_loss: 0.427345  Train_acc: 0.693092  [38/200]
+Train_loss: 0.416607  Train_acc: 0.700321  [39/200]
+Train_loss: 0.388595  Train_acc: 0.707656  [40/200]
+Train_loss: 0.375501  Train_acc: 0.714710  [41/200]
+Train_loss: 0.361655  Train_acc: 0.721429  [42/200]
+Train_loss: 0.337188  Train_acc: 0.727834  [43/200]
+Train_loss: 0.341994  Train_acc: 0.733878  [44/200]
+Train_loss: 0.337887  Train_acc: 0.739583  [45/200]
+Train_loss: 0.327677  Train_acc: 0.745177  [46/200]
+Train_loss: 0.311111  Train_acc: 0.750598  [47/200]
+Train_loss: 0.303749  Train_acc: 0.755729  [48/200]
+Train_loss: 0.285618  Train_acc: 0.760714  [49/200]
+Train_loss: 0.280289  Train_acc: 0.765500  [50/200]
+Train_loss: 0.272185  Train_acc: 0.770098  [51/200]
+Train_loss: 0.263679  Train_acc: 0.774519  [52/200]
+Train_loss: 0.264782  Train_acc: 0.778774  [53/200]
+Train_loss: 0.251926  Train_acc: 0.782870  [54/200]
+Train_loss: 0.248740  Train_acc: 0.786818  [55/200]
+Train_loss: 0.246495  Train_acc: 0.790625  [56/200]
+Train_loss: 0.247825  Train_acc: 0.794298  [57/200]
+Train_loss: 0.232259  Train_acc: 0.797845  [58/200]
+Train_loss: 0.233659  Train_acc: 0.801271  [59/200]
+Train_loss: 0.230614  Train_acc: 0.804583  [60/200]
+Train_loss: 0.227810  Train_acc: 0.807787  [61/200]
+Train_loss: 0.223547  Train_acc: 0.810887  [62/200]
+Train_loss: 0.225305  Train_acc: 0.813889  [63/200]
+Train_loss: 0.226350  Train_acc: 0.816797  [64/200]
+Train_loss: 0.214627  Train_acc: 0.819615  [65/200]
+Train_loss: 0.222709  Train_acc: 0.822348  [66/200]
+Train_loss: 0.217804  Train_acc: 0.825000  [67/200]
+Train_loss: 0.210254  Train_acc: 0.827574  [68/200]
+Train_loss: 0.211012  Train_acc: 0.830072  [69/200]
+Train_loss: 0.205121  Train_acc: 0.832500  [70/200]
+Train_loss: 0.206217  Train_acc: 0.834859  [71/200]
+Train_loss: 0.213456  Train_acc: 0.837153  [72/200]
+Train_loss: 0.210539  Train_acc: 0.839384  [73/200]
+Train_loss: 0.200327  Train_acc: 0.841554  [74/200]
+Train_loss: 0.204247  Train_acc: 0.843667  [75/200]
+Train_loss: 0.203327  Train_acc: 0.845724  [76/200]
+Train_loss: 0.202135  Train_acc: 0.847727  [77/200]
+Train_loss: 0.204115  Train_acc: 0.849679  [78/200]
+Train_loss: 0.199471  Train_acc: 0.851582  [79/200]
+Train_loss: 0.198469  Train_acc: 0.853437  [80/200]
+Train_loss: 0.202387  Train_acc: 0.855247  [81/200]
+Train_loss: 0.198367  Train_acc: 0.857012  [82/200]
+Train_loss: 0.196679  Train_acc: 0.858735  [83/200]
+Train_loss: 0.196412  Train_acc: 0.860417  [84/200]
+Train_loss: 0.195622  Train_acc: 0.862059  [85/200]
+Train_loss: 0.191311  Train_acc: 0.863663  [86/200]
+Train_loss: 0.193866  Train_acc: 0.865230  [87/200]
+Train_loss: 0.193300  Train_acc: 0.866761  [88/200]
+Train_loss: 0.192628  Train_acc: 0.868258  [89/200]
+Train_loss: 0.193657  Train_acc: 0.869722  [90/200]
+Train_loss: 0.192670  Train_acc: 0.871154  [91/200]
+Train_loss: 0.190910  Train_acc: 0.872554  [92/200]
+Train_loss: 0.192192  Train_acc: 0.873925  [93/200]
+Train_loss: 0.189846  Train_acc: 0.875266  [94/200]
+Train_loss: 0.191497  Train_acc: 0.876579  [95/200]
+Train_loss: 0.186912  Train_acc: 0.877865  [96/200]
+Train_loss: 0.189170  Train_acc: 0.879124  [97/200]
+Train_loss: 0.188421  Train_acc: 0.880357  [98/200]
+Train_loss: 0.186033  Train_acc: 0.881566  [99/200]
+Train_loss: 0.185179  Train_acc: 0.882750  [100/200]
+Train_loss: 0.188183  Train_acc: 0.883911  [101/200]
+Train_loss: 0.186763  Train_acc: 0.885049  [102/200]
+Train_loss: 0.185750  Train_acc: 0.886165  [103/200]
+Train_loss: 0.185516  Train_acc: 0.887260  [104/200]
+Train_loss: 0.185608  Train_acc: 0.888333  [105/200]
+Train_loss: 0.188296  Train_acc: 0.889387  [106/200]
+Train_loss: 0.186361  Train_acc: 0.890421  [107/200]
+Train_loss: 0.185890  Train_acc: 0.891435  [108/200]
+Train_loss: 0.185433  Train_acc: 0.892431  [109/200]
+Train_loss: 0.187860  Train_acc: 0.893409  [110/200]
+Train_loss: 0.187911  Train_acc: 0.894369  [111/200]
+Train_loss: 0.185351  Train_acc: 0.895312  [112/200]
+Train_loss: 0.182516  Train_acc: 0.896239  [113/200]
+Train_loss: 0.187453  Train_acc: 0.897149  [114/200]
+Train_loss: 0.188939  Train_acc: 0.898043  [115/200]
+Train_loss: 0.180657  Train_acc: 0.898922  [116/200]
+Train_loss: 0.186827  Train_acc: 0.899786  [117/200]
+Train_loss: 0.184747  Train_acc: 0.900636  [118/200]
+Train_loss: 0.183114  Train_acc: 0.901471  [119/200]
+Train_loss: 0.181634  Train_acc: 0.902292  [120/200]
+Train_loss: 0.180288  Train_acc: 0.903099  [121/200]
+Train_loss: 0.181186  Train_acc: 0.903893  [122/200]
+Train_loss: 0.183323  Train_acc: 0.904675  [123/200]
+Train_loss: 0.184687  Train_acc: 0.905444  [124/200]
+Train_loss: 0.182193  Train_acc: 0.906200  [125/200]
+Train_loss: 0.184263  Train_acc: 0.906944  [126/200]
+Train_loss: 0.180465  Train_acc: 0.907677  [127/200]
+Train_loss: 0.185972  Train_acc: 0.908398  [128/200]
+Train_loss: 0.181670  Train_acc: 0.909109  [129/200]
+Train_loss: 0.181889  Train_acc: 0.909808  [130/200]
+Train_loss: 0.184169  Train_acc: 0.910496  [131/200]
+Train_loss: 0.179770  Train_acc: 0.911174  [132/200]
+Train_loss: 0.181179  Train_acc: 0.911842  [133/200]
+Train_loss: 0.181079  Train_acc: 0.912500  [134/200]
+Train_loss: 0.184571  Train_acc: 0.913148  [135/200]
+Train_loss: 0.181112  Train_acc: 0.913787  [136/200]
+Train_loss: 0.181057  Train_acc: 0.914416  [137/200]
+Train_loss: 0.181916  Train_acc: 0.915036  [138/200]
+Train_loss: 0.182889  Train_acc: 0.915647  [139/200]
+Train_loss: 0.182612  Train_acc: 0.916250  [140/200]
+Train_loss: 0.179472  Train_acc: 0.916844  [141/200]
+Train_loss: 0.181226  Train_acc: 0.917430  [142/200]
+Train_loss: 0.179468  Train_acc: 0.918007  [143/200]
+Train_loss: 0.181177  Train_acc: 0.918576  [144/200]
+Train_loss: 0.181112  Train_acc: 0.919138  [145/200]
+Train_loss: 0.181221  Train_acc: 0.919692  [146/200]
+Train_loss: 0.178734  Train_acc: 0.920238  [147/200]
+Train_loss: 0.180513  Train_acc: 0.920777  [148/200]
+Train_loss: 0.179804  Train_acc: 0.921309  [149/200]
+Train_loss: 0.180124  Train_acc: 0.921833  [150/200]
+Train_loss: 0.180677  Train_acc: 0.922351  [151/200]
+Train_loss: 0.178633  Train_acc: 0.922862  [152/200]
+Train_loss: 0.181361  Train_acc: 0.923366  [153/200]
+Train_loss: 0.181315  Train_acc: 0.923864  [154/200]
+Train_loss: 0.179199  Train_acc: 0.924355  [155/200]
+Train_loss: 0.178894  Train_acc: 0.924840  [156/200]
+Train_loss: 0.178838  Train_acc: 0.925318  [157/200]
+Train_loss: 0.178733  Train_acc: 0.925791  [158/200]
+Train_loss: 0.177880  Train_acc: 0.926258  [159/200]
+Train_loss: 0.178504  Train_acc: 0.926719  [160/200]
+Train_loss: 0.177658  Train_acc: 0.927174  [161/200]
+Train_loss: 0.178668  Train_acc: 0.927623  [162/200]
+Train_loss: 0.179158  Train_acc: 0.928067  [163/200]
+Train_loss: 0.181756  Train_acc: 0.928506  [164/200]
+Train_loss: 0.178924  Train_acc: 0.928939  [165/200]
+Train_loss: 0.177399  Train_acc: 0.929367  [166/200]
+Train_loss: 0.180603  Train_acc: 0.929790  [167/200]
+Train_loss: 0.178586  Train_acc: 0.930208  [168/200]
+Train_loss: 0.182189  Train_acc: 0.930621  [169/200]
+Train_loss: 0.178864  Train_acc: 0.931029  [170/200]
+Train_loss: 0.177984  Train_acc: 0.931433  [171/200]
+Train_loss: 0.179666  Train_acc: 0.931831  [172/200]
+Train_loss: 0.180189  Train_acc: 0.932225  [173/200]
+Train_loss: 0.178619  Train_acc: 0.932615  [174/200]
+Train_loss: 0.179811  Train_acc: 0.933000  [175/200]
+Train_loss: 0.178651  Train_acc: 0.933381  [176/200]
+Train_loss: 0.183230  Train_acc: 0.933757  [177/200]
+Train_loss: 0.178270  Train_acc: 0.934129  [178/200]
+Train_loss: 0.181780  Train_acc: 0.934497  [179/200]
+Train_loss: 0.179700  Train_acc: 0.934861  [180/200]
+Train_loss: 0.177921  Train_acc: 0.935221  [181/200]
+Train_loss: 0.180274  Train_acc: 0.935577  [182/200]
+Train_loss: 0.179563  Train_acc: 0.935929  [183/200]
+Train_loss: 0.182055  Train_acc: 0.936277  [184/200]
+Train_loss: 0.180433  Train_acc: 0.936622  [185/200]
+Train_loss: 0.178638  Train_acc: 0.936962  [186/200]
+Train_loss: 0.179349  Train_acc: 0.937299  [187/200]
+Train_loss: 0.179033  Train_acc: 0.937633  [188/200]
+Train_loss: 0.179578  Train_acc: 0.937963  [189/200]
+Train_loss: 0.182592  Train_acc: 0.938289  [190/200]
+Train_loss: 0.178972  Train_acc: 0.938613  [191/200]
+Train_loss: 0.179528  Train_acc: 0.938932  [192/200]
+Train_loss: 0.180741  Train_acc: 0.939249  [193/200]
+Train_loss: 0.185612  Train_acc: 0.939562  [194/200]
+Train_loss: 0.178269  Train_acc: 0.939872  [195/200]
+Train_loss: 0.180260  Train_acc: 0.940179  [196/200]
+Train_loss: 0.180985  Train_acc: 0.940482  [197/200]
+Train_loss: 0.180880  Train_acc: 0.940783  [198/200]
+Train_loss: 0.176989  Train_acc: 0.941080  [199/200]
+Train_loss: 0.181811  Train_acc: 0.941375  [200/200]
+Test_acc: 0.600000
+
+End:20220123_21_54_09
+Implementation time:11m 2s
+
