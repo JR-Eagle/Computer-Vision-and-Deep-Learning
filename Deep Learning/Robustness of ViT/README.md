@@ -50,6 +50,7 @@ Comparison with state-of-the-art Robust Vision Transformer (RVT) model on CIFAR1
 | SRVT-M (Ours)  |      97.3      | **82.2** | **64.5** | **11.8** |
 
 ## CIFAR100
+
 |     Model      | CIFAR10(Top-1) |  FGSM↑   |   PGD↑   |   IN-C   |
 | :------------: | :------------: | :------: | :------: | :------: |
 |     ViT-Ti     |      70.2      |   10.9   |   1.7    |   92.4   |
@@ -79,6 +80,14 @@ Comparison with state-of-the-art Robust Vision Transformer (RVT) model on CIFAR1
 
 
 
+# Citation
 
-
+```BibTeX
+@inproceedings{xu2023srvt,
+  author       = {Lei Xu and Rei Kawakami and Nakamasa Inoue},
+  title        = {Scale-space Tokenization for Improving the Robustness of Vision Transformers},
+  booktitle    = {Proc. ACM International Conference on Multimedia (ACM MM)},
+  year         = {2023},
+}
+```
 **Acknowledgement**. Our implementation is based on [RVT](https://github.com/vtddggg/Robust-Vision-Transformer/tree/main), [pytorch vision](https://github.com/pytorch/vision) and [timm](https://github.com/huggingface/pytorch-image-models) library.
