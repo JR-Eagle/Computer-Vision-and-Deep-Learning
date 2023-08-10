@@ -1,6 +1,6 @@
 # Interpolation
 
-### Description
+### Task
 1.Nearest interpolation<br>
 2.Bilinear interpolation<br>
 3.Histogram Equalization<br>
