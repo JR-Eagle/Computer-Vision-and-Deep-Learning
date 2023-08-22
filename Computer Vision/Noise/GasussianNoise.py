@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @author:rai
-高斯噪声
+Gaussian Noise
 """
 
 import numpy as np
