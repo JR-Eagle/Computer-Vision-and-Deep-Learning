@@ -1,6 +1,6 @@
 """
 @author:Rai
-canny 检测边缘
+canny: edge detection
 """
 
 import cv2
