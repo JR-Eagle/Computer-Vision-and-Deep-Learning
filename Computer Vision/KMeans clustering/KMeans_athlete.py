@@ -1,17 +1,17 @@
 """
 @author: Rai
-KMean聚类:运动员数据
+KMeans Clustering: Athlete Data
 """
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import numpy as np
 
 """
-第一部分：数据集
-X表示二维矩阵数据，篮球运动员比赛数据
-总共20行，每行两列数据
-第一列表示球员每分钟助攻数：assists_per_minute
-第二列表示球员每分钟得分数：points_per_minute
+Part 1: Dataset
+X represents a two-dimensional matrix data, basketball player game data.
+There are a total of 20 rows, each with two columns of data.
+The first column represents the number of assists per minute by the player: assists_per_minute.
+The second column represents the number of points scored per minute by the player: points_per_minute.
 """
 X = [[0.0888, 0.5885],
      [0.1399, 0.8291],
@@ -44,7 +44,7 @@ y = [data[1] for data in X]
 
 plt.scatter(x, y, c=y_pred, marker='o')
 plt.title('KMeans-Basketball Data')
-plt.xlabel('assistance-nums_per_minute')
+plt.xlabel('assists_per_minute')
 plt.ylabel('points_per_minute')
 plt.savefig("KMeans_athlete.png")
 plt.show()
