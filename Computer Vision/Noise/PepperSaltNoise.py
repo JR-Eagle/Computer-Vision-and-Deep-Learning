@@ -1,41 +1,46 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 *-*
 """
-@author:rai
-Gaussian Noise
+@author: Rai
+Salt and Pepper Noise
 """
 
+import random
 import numpy as np
 import cv2
-import random
 
-
-def GaussianNoise(img, mean, sigma, ratio):
+def PepperSaltNoise(img, ratio):
+    """
+    This function introduces salt and pepper noise to an image.
+    
+    Parameters:
+    - img: input image
+    - ratio: ratio of pixels that will be affected by the noise
+    
+    Returns:
+    - noise_img: image with salt and pepper noise added
+    """
+    
     noise_img = img.copy()
-    pixels_total = img.shape[0] * img.shape[1]
-    noise_num = int(np.floor(pixels_total * ratio))
-    rand_num = np.array(random.sample(range(0, pixels_total), noise_num))  # Generate non-repetitive random numbers
-    x = rand_num // img.shape[1]
-    y = rand_num % img.shape[1]
-    # noise_img[x, y] = noise_img[x, y] + int(random.gauss(mean, sigma))
-    gauss_img = np.random.normal(mean, sigma, img.shape)
-    noise_img[x, y] = (noise_img + gauss_img)[x, y]
-    noise_img = np.uint8(np.clip(noise_img, 0, 255))
+    pixel_total = img.shape[0] * img.shape[1]
+    noise_num = int(pixel_total * ratio)
+    rand_point = random.sample(range(0, pixel_total), noise_num)  # Generate non-repeating random numbers
+    for point in rand_point:
+        x = point // img.shape[0]
+        y = point % img.shape[1]
+        noise = random.random()
+        noise_img[x, y] = 0 if noise < 0.5 else 255
 
     return noise_img
 
-
 if __name__ == '__main__':
-    color = False
+    img = cv2.imread('lenna.png')
+    img_salt = PepperSaltNoise(img, 0.05)
+    color = True
     if color:
-        img = cv2.imread('lenna.png')
-        img_gaussian = GaussianNoise(img, 1, 4, 0.8)
-        img_merge = np.hstack([img, img_gaussian])
-        cv2.imwrite('Gaussian Image_Color.png', img_merge)
+        img_merge = np.hstack([img, img_salt])
+        cv2.imwrite('Salt and Pepper Image_Color.png', img_merge)
     else:
-        img = cv2.imread('lenna.png', 0)
-        img_gaussian = GaussianNoise(img, 1, 4, 0.01)
-        img_merge = np.hstack([img, img_gaussian])
-        cv2.imwrite('Gaussian Image_Gray.png', img_merge)
-    cv2.imshow('Left: Original Image, Right: Gaussian Image', img_merge)
-
+        img_merge = np.hstack([img[:, :, 0], img_salt[:, :, 0]])
+        cv2.imwrite('Salt and Pepper Image_Gray.png', img_merge)
+    cv2.imshow('Left: Original Image, Right: Salt and Pepper Image', img_merge)
     cv2.waitKey(0)
