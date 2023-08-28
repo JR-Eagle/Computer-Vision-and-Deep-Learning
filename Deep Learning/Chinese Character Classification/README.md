@@ -100,7 +100,7 @@ While the training accuracy for all six models exceeded 94%, it is noteworthy th
 <img src='./tmp/9-Results.png'>
 
 # ◉Analysis
-In our experimental outcomes, the highest test accuracy achieved across the six models was 72.5%. This result is less than optimal, and upon reflection, several underlying causes can be identified:
+In the experimental findings, the peak test accuracy attained among the six models stood at 72.5%. While this performance is below the desired benchmark, a deeper analysis reveals several contributing factors:
 
 Firstly, the volume of training data available was limited. Chinese characters, inherently intricate in design, especially ancient scripts like the Bronze and Seal scripts, have numerous strokes, making their recognition a challenging task. Acquiring meaningful feature maps from a mere 400 images for such complex characters is a daunting undertaking for any model.
 
