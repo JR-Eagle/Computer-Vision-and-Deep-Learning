@@ -3,9 +3,9 @@
 
   
 
-## 结果
+## Result
 
 
 
 * Accuracy：86.89%
-![精度曲线](./assets/Accuracy.png)
+![Accuracy Curve](./assets/Accuracy.png)
