@@ -1,6 +1,6 @@
 """
 @author: Rai
-训练MNIST数据集网络
+Train a network on the MNIST dataset.
 """
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
@@ -14,13 +14,11 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-# 数据读取及预处理
+# Data loading and preprocessing
 def data_load(batch_size):
-    # import torchvision.datasets as datasets
-    # import torchvision.transforms as transforms
     transform = transforms.Compose([
         transforms.ToTensor(),
-        # 数据的范围[0,1] -> [-1,1]
+        # Convert the data range from [0,1] to [-1,1]
         transforms.Normalize(0.5, 0.5),
         transforms.Lambda(lambda x: x.view(-1))
     ])
@@ -31,7 +29,6 @@ def data_load(batch_size):
     test_set = datasets.MNIST(root=data_root, train=False,
                               download=False, transform=transform)
 
-    # from torch.utils.data import DataLoader
     train_loader = DataLoader(dataset=train_set, batch_size=batch_size,
                               shuffle=True)
     test_loader = DataLoader(dataset=test_set, batch_size=batch_size)
@@ -39,7 +36,7 @@ def data_load(batch_size):
     return train_set, test_set, train_loader, test_loader, num_classes
 
 
-# 定义训练和验证模型
+# Define the training and validation models
 class Model(object):
     def __init__(self, net, cost, optimizer, lr, device):
         self.net = net
@@ -65,20 +62,20 @@ class Model(object):
     def train(self, train_loader, batch_size):
         train_acc, train_loss= 0, 0
         for inputs, labels in train_loader:
-            # 数据写入GPU或CPU
+            # Load data into GPU or CPU
             inputs = inputs.to(self.device)
             labels = labels.to(self.device)
-            # 预测值
+            # Predicted values
             outputs = self.net(inputs)
-            # 损失
+            # Calculate loss
             loss = self.cost(outputs, labels)
-            # 防止梯度出现累加
+            # Prevent gradient accumulation
             self.optim.zero_grad()
-            # 反向传播
+            # Backpropagation
             loss.backward()
-            # 更新参数
+            # Update parameters
             self.optim.step()
-            # 概率最大的即为预测值.max返回（最大值，索引）
+            # The highest probability is the predicted value .max returns (maximum value, index)
             pred = torch.max(outputs, 1)[1]
             train_loss += loss.item()
             train_acc += (pred == labels).sum().item()
@@ -90,7 +87,7 @@ class Model(object):
 
     def test(self, test_loader, batch_size):
         test_acc, test_loss = 0, 0
-        # 关闭梯度，节省内存
+        # Turn off the gradient to save memory
         with torch.no_grad():
             for inputs, labels in test_loader:
                 inputs = inputs.to(self.device)
@@ -108,26 +105,26 @@ class Model(object):
 
 def show_figure(history, epochs):
     unit = epochs / 5
-    # 绘制损失曲线
+    # Draw the loss curve
     plt.plot(history[:, 0], history[:, 1], 'b', label='train_loss')
     plt.plot(history[:, 0], history[:, 3], 'g', label='test_loss')
-    plt.title('loss curve')
+    plt.title('Loss curve')
     plt.legend()
     plt.xticks(np.arange(0, epochs + 1, unit))
     plt.xlabel('epoch')
     plt.ylabel('loss')
-    plt.savefig('损失曲线.png')
+    plt.savefig('Loss_Curve.png')
     plt.show()
 
-    # 绘制精度曲线
+    # Draw the accuracy curve
     plt.plot(history[:, 0], history[:, 2], 'b', label='train_acc')
     plt.plot(history[:, 0], history[:, 4], 'g', label='test_acc')
-    plt.title('acc curve')
+    plt.title('Accuracy curve')
     plt.legend()
     plt.xticks(np.arange(0, epochs + 1, unit))
     plt.xlabel('epoch')
-    plt.ylabel('acc')
-    plt.savefig('精度曲线')
+    plt.ylabel('accuracy')
+    plt.savefig('Accuracy_Curve.png')
     plt.show()
 
 
@@ -135,7 +132,7 @@ def main():
     batch_size = 128
     lr = 0.1
     epochs = 50
-    # 设备支持GPU使用GPU训练，反之使用CPU训练
+    # If the device supports GPU, use GPU for training, otherwise use CPU
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     train_set, test_set, train_loader, test_loader, num_classes = data_load(batch_size)
 
@@ -144,7 +141,7 @@ def main():
     net = NeuralNet(ch_input=ch_input, ch_output=num_classes, ch_hidden=128).to(device)
     net.to(device)
     model = Model(net=net, cost='CROSS_ENTROPY', optimizer='SGD', lr=lr, device=device)
-    # 保存训练和验证的损失及精度结果
+    # Save the results of training and validation losses and accuracies
     history = np.zeros((0, 5))
 
     for epoch in range(epochs):
@@ -158,9 +155,4 @@ def main():
 
     save_pth = './SimpleNet.pth'
     torch.save(net.state_dict(), save_pth)
-    # 绘制训练和验证损失以及精度曲线
-    show_figure(history, epochs)
-
-
-if __name__ == '__main__':
-    main()
+    # Draw
