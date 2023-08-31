@@ -1,0 +1,69 @@
+using 50000 images for train, 10000 images for test
+Epoch:[  1/50, train loss:2.57499, train acc:0.2742, test loss:1.67127 test acc:0.3885
+Epoch:[  2/50, train loss:2.20479, train acc:0.3960, test loss:1.48006 test acc:0.4678
+Epoch:[  3/50, train loss:2.09638, train acc:0.4425, test loss:3.83135 test acc:0.5020
+Epoch:[  4/50, train loss:1.89311, train acc:0.4980, test loss:2.96447 test acc:0.4921
+Epoch:[  5/50, train loss:1.75866, train acc:0.5295, test loss:1.06324 test acc:0.6412
+Epoch:[  6/50, train loss:1.52671, train acc:0.5923, test loss:0.93263 test acc:0.6805
+Epoch:[  7/50, train loss:1.42929, train acc:0.6173, test loss:0.89150 test acc:0.6956
+Epoch:[  8/50, train loss:1.41045, train acc:0.6364, test loss:0.87345 test acc:0.7134
+Epoch:[  9/50, train loss:1.25612, train acc:0.6748, test loss:0.84421 test acc:0.7395
+Epoch:[ 10/50, train loss:1.16047, train acc:0.6939, test loss:0.66093 test acc:0.7816
+Epoch:[ 11/50, train loss:1.09737, train acc:0.7085, test loss:0.60242 test acc:0.7953
+Epoch:[ 12/50, train loss:1.02006, train acc:0.7308, test loss:0.65738 test acc:0.7756
+Epoch:[ 13/50, train loss:1.02692, train acc:0.7289, test loss:4.58989 test acc:0.5179
+Epoch:[ 14/50, train loss:1.15688, train acc:0.6978, test loss:0.79535 test acc:0.7367
+Epoch:[ 15/50, train loss:1.05245, train acc:0.7179, test loss:0.48285 test acc:0.8366
+Epoch:[ 16/50, train loss:0.93837, train acc:0.7529, test loss:0.47050 test acc:0.8372
+Epoch:[ 17/50, train loss:0.88848, train acc:0.7643, test loss:0.42194 test acc:0.8516
+Epoch:[ 18/50, train loss:0.86062, train acc:0.7724, test loss:0.50565 test acc:0.8300
+Epoch:[ 19/50, train loss:0.84369, train acc:0.7767, test loss:0.43482 test acc:0.8573
+Epoch:[ 20/50, train loss:0.85576, train acc:0.7760, test loss:0.49174 test acc:0.8364
+Epoch:[ 21/50, train loss:0.84385, train acc:0.7777, test loss:0.41506 test acc:0.8650
+Epoch:[ 22/50, train loss:0.75711, train acc:0.8006, test loss:0.42835 test acc:0.8614
+Epoch:[ 23/50, train loss:0.75225, train acc:0.8006, test loss:0.40555 test acc:0.8688
+Epoch:[ 24/50, train loss:0.75986, train acc:0.8007, test loss:0.39355 test acc:0.8690
+Epoch:[ 25/50, train loss:0.82844, train acc:0.7826, test loss:0.37489 test acc:0.8728
+Epoch:[ 26/50, train loss:0.72078, train acc:0.8088, test loss:0.38140 test acc:0.8720
+Epoch:[ 27/50, train loss:0.78141, train acc:0.7937, test loss:0.41027 test acc:0.8636
+Epoch:[ 28/50, train loss:0.69770, train acc:0.8156, test loss:0.39624 test acc:0.8730
+Epoch:[ 29/50, train loss:0.67348, train acc:0.8228, test loss:0.35602 test acc:0.8852
+Epoch:[ 30/50, train loss:0.78033, train acc:0.7988, test loss:0.33967 test acc:0.8896
+Epoch:[ 31/50, train loss:0.66062, train acc:0.8253, test loss:0.32737 test acc:0.8978
+Epoch:[ 32/50, train loss:0.64628, train acc:0.8310, test loss:0.42175 test acc:0.8616
+Epoch:[ 33/50, train loss:0.64722, train acc:0.8307, test loss:0.34235 test acc:0.8939
+Epoch:[ 34/50, train loss:0.62324, train acc:0.8367, test loss:0.33479 test acc:0.8950
+Epoch:[ 35/50, train loss:0.70340, train acc:0.8168, test loss:0.34736 test acc:0.8869
+Epoch:[ 36/50, train loss:0.66951, train acc:0.8242, test loss:0.30333 test acc:0.9055
+Epoch:[ 37/50, train loss:0.60447, train acc:0.8414, test loss:0.31029 test acc:0.9014
+Epoch:[ 38/50, train loss:0.57099, train acc:0.8502, test loss:0.29084 test acc:0.9109
+Epoch:[ 39/50, train loss:0.57042, train acc:0.8502, test loss:0.28794 test acc:0.9066
+Epoch:[ 40/50, train loss:0.55841, train acc:0.8526, test loss:0.30500 test acc:0.9042
+Epoch:[ 41/50, train loss:0.55683, train acc:0.8541, test loss:0.32818 test acc:0.9021
+Epoch:[ 42/50, train loss:0.54794, train acc:0.8560, test loss:0.38539 test acc:0.8833
+Epoch:[ 43/50, train loss:0.58277, train acc:0.8492, test loss:0.31774 test acc:0.9001
+Epoch:[ 44/50, train loss:0.56359, train acc:0.8528, test loss:0.29390 test acc:0.9039
+Epoch:[ 45/50, train loss:0.61702, train acc:0.8396, test loss:0.32026 test acc:0.9030
+Epoch:[ 46/50, train loss:0.53210, train acc:0.8600, test loss:0.28404 test acc:0.9155
+Epoch:[ 47/50, train loss:0.54953, train acc:0.8575, test loss:0.31178 test acc:0.9060
+Epoch:[ 48/50, train loss:0.53661, train acc:0.8597, test loss:0.28606 test acc:0.9111
+Epoch:[ 49/50, train loss:0.50284, train acc:0.8684, test loss:0.34142 test acc:0.9033
+Epoch:[ 50/50, train loss:0.50016, train acc:0.8691, test loss:0.27218 test acc:0.9209
+time end:20230109_21_47_51
+
+Training time 6:00:23
+
+wandb: 
+wandb: Run history:
+wandb:   Test_acc ▁▂▂▂▅▅▅▆▆▆▃▆▇▇▇▇▇▇▇▇▇▇▇██▇██████████████
+wandb:  Test_loss ▃▃▇▅▂▂▂▂▂▂█▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  Train_acc ▁▂▃▄▅▅▅▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇███▇███████████
+wandb: Train_loss █▇▆▆▄▄▄▄▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:   Test_acc 0.9209
+wandb:  Test_loss 0.27218
+wandb:  Train_acc 0.86912
+wandb: Train_loss 0.50016
+wandb: 
+
