@@ -1,6 +1,6 @@
 """
 @author: Rai
-Training a neural network using the CIFAR10 dataset with ResNet18 architecture.
+Training ResNet18 neural network using the CIFAR10 dataset.
 """
 
 import os
