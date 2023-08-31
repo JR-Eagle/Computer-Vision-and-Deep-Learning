@@ -3,7 +3,6 @@
 
 ## Result
 
-### 3.Resnet网络训练和推理
 * **Train method:** Finetuning
 * **Accuarcy**：95.02%
 ![Accuracy Loss](./assets/Accuracy.png)
