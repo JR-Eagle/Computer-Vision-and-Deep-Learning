@@ -1,6 +1,6 @@
 """
 @author: Rai
-用CIFAR10数据训练神经网络
+Train a neural network using the CIFAR10 dataset.
 """
 import torchvision.datasets as datasets
 import torchvision.transforms as transfroms
@@ -20,7 +20,7 @@ def data_load(batch_size):
             transfroms.Resize((32, 32)),
             transfroms.RandomHorizontalFlip(),
             transfroms.ColorJitter(),
-            # transform data to tensor [0.0,10.]
+            # transform data to tensor [0.0, 1.0]
             transfroms.ToTensor(),
             transfroms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
         ]),
@@ -91,26 +91,26 @@ class Engine(object):
 
 def show_figure(history, epochs):
     unit = epochs / 10
-    # 绘制损失曲线
+    # Draw the loss curve
     plt.plot(history[:, 0], history[:, 1], 'b', label='train_loss')
     plt.plot(history[:, 0], history[:, 3], 'g', label='test_loss')
-    plt.title('loss curve')
+    plt.title('Loss curve')
     plt.legend()
     plt.xticks(np.arange(0, epochs + 1, unit))
     plt.xlabel('epoch')
     plt.ylabel('loss')
-    plt.savefig('损失曲线.png')
+    plt.savefig('Loss_Curve.png')
     plt.show()
 
-    # 绘制精度曲线
+    # Draw the accuracy curve
     plt.plot(history[:, 0], history[:, 2], 'b', label='train_acc')
     plt.plot(history[:, 0], history[:, 4], 'g', label='test_acc')
-    plt.title('acc curve')
+    plt.title('Accuracy curve')
     plt.legend()
     plt.xticks(np.arange(0, epochs + 1, unit))
     plt.xlabel('epoch')
-    plt.ylabel('acc')
-    plt.savefig('精度曲线')
+    plt.ylabel('accuracy')
+    plt.savefig('Accuracy_Curve.png')
     plt.show()
 
 
@@ -140,7 +140,7 @@ def main():
 
     save_path = './LeNet.pth'
     torch.save(net.state_dict(), save_path)
-    # 绘制训练和验证损失以及精度曲线
+    # Plot the training and validation loss and accuracy curves
     show_figure(history, epochs)
 
 
