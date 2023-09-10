@@ -4,55 +4,67 @@
 Gaussian Noise
 """
 
-import numpy as np
 import cv2
+import numpy as np
 import random
 
-def add_gaussian_noise(image, mean, sigma, percentage):
+
+def add_gaussian_noise(image, mean, sigma, ratio):
     """
     Introduces Gaussian noise to an image.
-    
+
     Parameters:
     - image: Input image.
     - mean: Mean value of the Gaussian noise.
     - sigma: Standard deviation of the Gaussian noise.
-    - percentage: Ratio of pixels that will be affected by the noise.
-    
+    - ratio: Ratio of pixels that will be affected by the noise.
+
     Returns:
     - noised_image: Image with Gaussian noise added.
     """
-    
+
+    # Make a copy of the original image
     noised_image = image.copy()
-    
+
+    # Calculate the total number of pixels
+    total_pixels = image.shape[0] * image.shape[1]
+
     # Calculate the number of pixels to be noised
-    total_pixels_to_noise = int(percentage * image.shape[0] * image.shape[1])
-    
-    for _ in range(total_pixels_to_noise):
-        # Randomly select a pixel
-        rand_x = random.randint(0, image.shape[0] - 1)
-        rand_y = random.randint(0, image.shape[1] - 1)
-        
-        # Add Gaussian noise to the selected pixel
-        noised_image[rand_x, rand_y] += random.gauss(mean, sigma)
-        
-        # Clip the pixel value to be between 0 and 255
-        noised_image[rand_x, rand_y] = np.clip(noised_image[rand_x, rand_y], 0, 255)
+    pixels_to_noise = int(np.floor(total_pixels * ratio))
+
+    # Generate unique random numbers to determine which pixels will get noise
+    random_pixels = np.array(random.sample(range(0, total_pixels), pixels_to_noise))
+    x_coords = random_pixels // image.shape[0]
+    y_coords = random_pixels % image.shape[1]
+
+    # Generate Gaussian noise
+    gaussian_noise = np.random.normal(mean, sigma, image.shape)
+
+    # Apply the Gaussian noise to the randomly selected pixels
+    noised_image[x_coords, y_coords] = (noised_image + gaussian_noise)[x_coords, y_coords]
+
+    # Clip the image values to be between 0 and 255 and convert to uint8 format
+    noised_image = np.uint8(np.clip(noised_image, 0, 255))
 
     return noised_image
 
+
 if __name__ == '__main__':
-    color = False
-    if color:
-        img = cv2.imread('lenna.png')
-        # Add Gaussian noise to the color image
-        noised_image = add_gaussian_noise(img, 2, 4, 0.8)
-        img_merge = np.hstack([img, noised_image])
-        cv2.imwrite('Gaussian Image_Color.png', img_merge)
+    # Flag to decide if the input image is in color or grayscale
+    is_color = True
+
+    # Read the input image based on the color flag
+    if is_color:
+        input_image = cv2.imread('lenna.png')
+        noised_image = add_gaussian_noise(input_image, 1, 4, 0.9)
+        merged_image = np.hstack([input_image, noised_image])
+        cv2.imwrite('Gaussian_Image_Color.png', merged_image)
     else:
-        img = cv2.imread('lenna.png', 0)
-        # Add Gaussian noise to the grayscale image
-        noised_image = add_gaussian_noise(img, 2, 4, 0.8)
-        img_merge = np.hstack([img, noised_image])
-        cv2.imwrite('Gaussian Image_Gray.png', img_merge)
-    cv2.imshow('Left: Original Image, Right: Gaussian Image', img_merge)
+        input_image = cv2.imread('lenna.png', 0)
+        noised_image = add_gaussian_noise(input_image, 1, 4, 0.01)
+        merged_image = np.hstack([input_image, noised_image])
+        cv2.imwrite('Gaussian_Image_Gray.png', merged_image)
+
+    # Display the merged image: Original on the left and Noised on the right
+    cv2.imshow('Left: Original Image, Right: Noised Image', merged_image)
     cv2.waitKey(0)
