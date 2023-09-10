@@ -40,4 +40,12 @@ if __name__ == '__main__':
     color = False
     if color:
         img = cv2.imread('lenna.png')
-        img_g
+        img_gaussian = GaussianNoise(img, 1, 4, 0.8)
+        img_merge = np.hstack([img, img_gaussian])
+        cv2.imwrite('Gaussian Image_Color.png', img_merge)
+    else:
+        img = cv2.imread('lenna.png', 0)
+        img_gaussian = GaussianNoise(img, 1, 4, 0.01)
+        img_merge = np.hstack([img, img_gaussian])
+        cv2.imwrite('Gaussian Image_Gray.png', img_merge)
+    cv2.imshow('Left: Original Image, Right: Gaussian Image', img_merge)
