@@ -42,8 +42,20 @@ def canny_edge_detection(sigma):
     # 4. Dual threshold detection and edge linking
     edge_lower = img_gauss.mean() * 0.5
     edge_upper = edge_lower * 3
-
-    # Continue with the main edge detection calculation...
+    img_cany = img_NMS.copy()
+    img_cany[img_cany >= edge_upper] = 255  # Weak Edge
+    img_cany[img_cany <= edge_lower] = 0   # Supression
+    near_field_8 = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
+    for i in range(1, dx - 1):
+        for j in range(1, dy - 1):
+            # Weak Edge
+            if img_cany[i, j] > edge_lower and img_cany[i,j] < edge_upper:
+                tmp = img_cany[i-1:i+2, j-1:j+2] * near_field_8
+                if np.max(tmp) >= edge_upper:
+                    img_cany[i, j] = 255
+                else:
+                    img_cany[i, j] = 0
+    
     
 if __name__ == "__main__":
     canny_edge_detection(sigma=0.5)
