@@ -19,6 +19,7 @@
 <img widht=300 src='./rst/NMS img.png'>
 
 (4)Dual threshold detection
+
 <img width=250 src='./rst/Canny img.png'>
 
 
