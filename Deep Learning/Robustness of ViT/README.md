@@ -3,6 +3,7 @@
 Our paper has been accepted for ACM Multimedia 2023. The code will be released shortly.
 
 [Paper](https://dl.acm.org/doi/10.1145/3581783.3612060)
+[Poster](./SRVT_ACM MM23_Poster.pdf)
 
 # Abstract
 
