@@ -8,6 +8,8 @@
 
 #### 1. canny detail
 (1)Gaussian Smoothing
+
+
 <img width=400 src='./rst/Gaussian img.png'>
 
 (2)Use Sobel to detect horizontal, vertical, and diagonal edges.
