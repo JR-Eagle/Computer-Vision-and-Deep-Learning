@@ -6,7 +6,7 @@
 
 ### Result
 
-#### 1. canny detail实现
+#### 1. canny detail
 (1)Gaussian Smoothing
 <img width=400 src='./rst/Gaussian img.png'>
 
