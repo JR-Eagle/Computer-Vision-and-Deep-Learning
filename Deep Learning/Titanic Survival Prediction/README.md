@@ -21,7 +21,8 @@ The `train_model` function defines the explanatory variables and target variable
 
 The `evaluate_model` function makes predictions on the test set using the trained model, compares predicted labels to actual labels, computes the accuracy of predictions, and prints the accuracy.
 
-
+## Results
+When run locally, the script achieved an accuracy of 82.1% on predicting survival on the Titanic.
 
 ## Usage
 
